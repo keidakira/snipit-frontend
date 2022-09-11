@@ -1,0 +1,44 @@
+.snippets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 16px 8px;
+}
+
+.snippet pre {
+    font-family: "Courier New", serif;
+    font-size: 18px;
+    padding: 1rem;
+}
+
+.snippet .snippet-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.snippet .snippet-options span, .snippet .snippet-options a {
+    cursor: pointer;
+    padding: 4px 8px;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.snippet span:hover, .snippet a:hover {
+    background-color: var(--primaryColor);
+    color: white;
+}
+
+.snippet .name {
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    padding: 12px 16px;
+    margin: 0;
+    background-color: black;
+}

@@ -1,0 +1,10 @@
+.brand-image-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-name {
+    font-weight: 500;
+    font-size: 24px;
+}
