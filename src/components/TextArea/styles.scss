@@ -1,0 +1,10 @@
+@import "src/_variables.scss";
+
+textarea.error {
+  border: 1px solid $red;
+}
+
+span.error-text {
+  font-size: small;
+  color: $red;
+}

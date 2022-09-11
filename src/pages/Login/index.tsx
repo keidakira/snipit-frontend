@@ -20,6 +20,10 @@ const LoginPage = () => {
         setPassword(event.currentTarget.value);
     };
 
+    const loginUser = (event: React.FormEvent<HTMLButtonElement>) => {
+        return;
+    }
+
     return (
         <div className="App">
             <div className="container">
@@ -37,7 +41,12 @@ const LoginPage = () => {
                     placeholder={"Password"}
                     onChange={handlePassword}
                 />
-                <Button title={"Login"} isPrimary={true}/>
+                <Button
+                    title={"Login"}
+                    isPrimary={true}
+                    onClick={loginUser}
+                    loadingText={"Logging..."}
+                />
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import {AxiosError, AxiosInstance} from "axios";
 import Snippet from "../models/snippet.model";
 
 import {DeletedSnippetResponse, ListOfSnippetResponse, SingleSnippetResponse} from "./snippet.responses";
+import {encryptUserSnippet} from "../services/crypto.service";
 
 const API: AxiosInstance = apiInstance;
 const baseUrl = API.getUri();
@@ -11,10 +12,17 @@ const urls = {
     GET_ALL_SNIPPETS: baseUrl + "/snippet",
     DELETE_A_SNIPPET: baseUrl + "/snippet/",
 }
+const userId = window.localStorage.getItem("userId") || "";
 
 const createSnippet = async (name: string, code: string, url ?: string): Promise<SingleSnippetResponse> => {
+    const encryptedCode = encryptUserSnippet(code);
+    console.log(userId);
+
     const snippet: Snippet = {
-        name, code, url
+        name,
+        code: encryptedCode,
+        owner: userId,
+        url
     };
 
     const response = await API.post(urls.CREATE_SNIPPET, JSON.stringify(snippet));

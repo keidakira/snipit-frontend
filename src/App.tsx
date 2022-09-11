@@ -11,6 +11,7 @@ import {
 // Custom Pages
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/Login";
+import CreateSnippetPage from "./pages/CreateSnippet";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="dashboard" element={<Dashboard />} />
+                <Route path="create-snippet" element={<CreateSnippetPage />} />
                 <Route
                     path="*"
                     element={
