@@ -2,6 +2,7 @@ import {Container, FlexContainer, NavWrapper} from "./styles";
 import BrandImage from "../BrandImage";
 
 import "./styles.css";
+import {Link} from "react-router-dom";
 
 interface NavProps {
     active: string
@@ -35,14 +36,14 @@ const Navbar = ({active}: NavProps) => {
                         {navOptions.map((navEl, index) => {
                             if (navEl.activeName === active)
                                 return <li className={"active"} key={index}>
-                                    <a href={navEl.url}>
+                                    <Link to={navEl.url}>
                                         {navEl.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             return <li key={index}>
-                                <a href={navEl.url}>
+                                <Link to={navEl.url}>
                                     {navEl.name}
-                                </a>
+                                </Link>
                             </li>
                         })}
                     </ul>

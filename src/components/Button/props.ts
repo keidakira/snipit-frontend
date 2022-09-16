@@ -5,6 +5,7 @@ interface ButtonProps {
     isPrimary: boolean,
     loadingText?: string,
     onClick: (event: React.FormEvent<HTMLButtonElement>) => void
+    type?: ("button" | "submit")
 }
 
 export default ButtonProps;

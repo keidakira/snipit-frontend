@@ -4,6 +4,7 @@ import Snippet from "../models/snippet.model";
 
 import {DeletedSnippetResponse, ListOfSnippetResponse, SingleSnippetResponse} from "./snippet.responses";
 import {encryptUserSnippet} from "../services/crypto.service";
+import {configs} from "@typescript-eslint/eslint-plugin";
 
 const API: AxiosInstance = apiInstance;
 const baseUrl = API.getUri();
@@ -14,9 +15,12 @@ const urls = {
 }
 const userId = window.localStorage.getItem("userId") || "";
 
+const headers = {
+    "owner": userId
+};
+
 const createSnippet = async (name: string, code: string, url ?: string): Promise<SingleSnippetResponse> => {
     const encryptedCode = encryptUserSnippet(code);
-    console.log(userId);
 
     const snippet: Snippet = {
         name,
@@ -38,7 +42,9 @@ const createSnippet = async (name: string, code: string, url ?: string): Promise
 
 const getAllSnippets = async (): Promise<ListOfSnippetResponse> => {
     try {
-        const response = await API.get(urls.GET_ALL_SNIPPETS);
+        const response = await API.get(urls.GET_ALL_SNIPPETS, {
+            headers: headers
+        });
 
         const {data, message, error} = response.data;
 

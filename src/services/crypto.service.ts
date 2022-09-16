@@ -10,7 +10,13 @@ const encryptUserSnippet = (plainCode: string): string => {
     return CryptoJS.enc.Base64.stringify(wordArray);
 }
 
+const hashPassword = (plainPassword: string): string => {
+    const wordArray = CryptoJS.enc.Utf8.parse(plainPassword);
+    return CryptoJS.SHA256(wordArray).toString(CryptoJS.enc.Utf8);
+}
+
 export {
     decryptUserSnippet,
-    encryptUserSnippet
+    encryptUserSnippet,
+    hashPassword
 }

@@ -63,6 +63,9 @@ const Dashboard = () => {
                             })
                         )
                     }
+                    {
+                        snippets.length === 0 && <p style={{textAlign: 'center'}}>You don't have any snippets yet! :/</p>
+                    }
                 </div>
             </Container>
         </>

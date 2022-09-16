@@ -1,0 +1,11 @@
+@import "src/_variables.scss";
+
+.error-text {
+  color: $red;
+  font-size: small;
+  margin: 0 0 8px;
+}
+
+.error-text.error-center {
+  text-align: center;
+}
